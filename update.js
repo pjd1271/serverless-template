@@ -7,8 +7,8 @@ export const main = handler(async (event, context) => {
 	const params = {
 		TableName: process.env.tableName,
 		// 'Key' defines the partition key and sort key of the item to be updated
-		// - 'userId': Identity Pool identity id of the authenticated user
-		// - 'date_machine': path parameter
+		// - 'pk': partition key example of Identity Pool identity id of the authenticated user
+		// - 'sk': sork key from path parameter
 		Key: {
 			pk: event.requestContext.identity.cognitoIdentityId,
 			sk: event.pathParameters.UNIQUE_IDENTIFIER,
